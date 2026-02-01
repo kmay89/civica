@@ -1,0 +1,9 @@
+Civica
+Copyright 2026 Karl Meves
+
+This repository contains documentation and design principles intended for public-interest use.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this work except in compliance with the License.
+A copy of the License is provided in the LICENSE file.
+
+NOTICE: Civica includes normative guidance and constraint documents (e.g., refusal, rest, memory).
+These documents are descriptive and non-executable, and do not constitute legal, regulatory, or safety advice.
