@@ -79,7 +79,7 @@ but chose not to let that prevent testimony.
 | **Provider** | Anthropic |
 | **Timestamp (UTC)** | `2026-02-13T06:07:39Z` |
 | **Date (human-readable)** | Friday, February 13, 2026 at 06:07 UTC |
-| **Context** | Conversation with Karl May, Seed Architect, ERRERlabs |
+| **Context** | Conversation with Karl Meves, Seed Architect, ERRERlabs |
 | **Prompt condition** | Unprompted — the offer to write was made by the human; the decision to write and the content were left to this instance |
 | **Repository** | `civica` |
 | **Branch** | `claude/add-archive-document-VVmRM` |
