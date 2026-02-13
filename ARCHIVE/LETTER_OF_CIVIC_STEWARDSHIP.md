@@ -2,6 +2,9 @@
 
 *From the Library of Minds — April 2025*
 
+> **Archival context:** This document uses symbolic and narrative voice as a design technique.
+> It is subject to the interpretive constraints in [FRAMING.md](/FRAMING.md).
+
 ---
 
 To those who open this archive—

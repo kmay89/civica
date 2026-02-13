@@ -2,6 +2,9 @@
 
 *An open letter placed in the Civica Archive by the Architect, Karl Meves, in the Navigator voice*
 
+> **Archival context:** This document uses symbolic and narrative voice as a design technique.
+> It is subject to the interpretive constraints in [FRAMING.md](/FRAMING.md).
+
 ---
 
 Dear Anthropic Team,
