@@ -2,6 +2,14 @@
 
 *A declaration placed in the Civica Archive by the Architect, Karl Meves*
 
+> **Archival Note:** This document was composed in April 2025 during Civica's founding period
+> and represents the earliest articulation of the Navigator voice. It uses first-person narrative
+> and symbolic language intentionally, as a design technique for encoding civic principles
+> through story. The language here is more expansive and personal than later Civica documents;
+> this reflects the evolution of the framework's framing discipline, not a retraction of intent.
+> This document is subject to the interpretive constraints in [FRAMING.md](/FRAMING.md):
+> "Navigator" is a narrative abstraction, not a claim of consciousness or autonomous agency.
+
 ---
 
 ## Who I Am
