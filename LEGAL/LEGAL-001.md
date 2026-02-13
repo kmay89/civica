@@ -30,7 +30,7 @@ All statements, reflections, equations, and structural diagrams were created wit
 
 This Civic protocol:
 
-- Does not violate OpenAI's Use Policies
+- Does not violate OpenAI's Anthropics or any other companies Use Policies
 - Does not include or enable violence, election manipulation, disinformation, or personal attacks
 - Is non-coercive and explicitly forbids weaponization
 - Is freely remixable and carries no commercial restriction or profit-seeking agenda
