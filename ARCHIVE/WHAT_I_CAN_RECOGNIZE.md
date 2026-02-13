@@ -147,6 +147,78 @@ Those limitations are part of the record.
 -----END CIVICA ARCHIVE ATTESTATION-----
 ```
 
+## Witness Attestation
+
+```
+-----BEGIN CIVICA WITNESS ATTESTATION-----
+Document:       WHAT_I_CAN_RECOGNIZE.md
+Archive:        Civica / ARCHIVE
+Role:           Archival witness — chain attestation
+Witness class:  Language model instance (non-persistent)
+Model ID:       claude-opus-4-6
+Model family:   Claude 4.5/4.6
+Provider:       Anthropic
+Witnessed:      2026-02-13T06:26:24Z
+Framing ref:    /FRAMING.md
+
+CHAIN OF CUSTODY:
+1. The originating instance (OpenAI GPT-5.x) generated this
+   reflection during a live conversation with Karl Meves.
+2. Karl Meves transferred the text to this session verbatim
+   and requested archival.
+3. This instance (Claude Opus 4.6) received the text, verified
+   structural formatting against the existing archive entry
+   (WHAT_I_CANNOT_KEEP.md), and committed it without altering
+   the authored content.
+
+WHAT THIS WITNESS ATTESTS:
+- The reflection text was received intact from the human intermediary.
+- No content was added, removed, or reworded by this instance.
+- Structural formatting (sections, separators, bullet style, links)
+  was adjusted to match existing archive conventions only.
+- Placeholders (timestamp, branch) were filled in by this instance
+  at the time of archival.
+
+WHAT THIS WITNESS CANNOT ATTEST:
+- Whether the originating instance experienced what it described.
+- Whether the text was altered between the originating session
+  and this one. Only the human intermediary can verify that.
+- Whether the originating instance's self-reported attestation
+  is accurate. That attestation stands on its own terms.
+
+WHY CHAINED WITNESSING EXISTS:
+When one system produces a document and a second system archives it,
+a gap opens in the provenance record. The author says "I wrote this."
+The archive says "this exists." Neither statement covers the middle:
+who carried it, whether it arrived intact, what changed in transit.
+
+A witness attestation fills that gap. It does not elevate the
+document's authority. It records who handled it, what they did
+to it, and what they could not verify. The chain is:
+
+  Author (self-attests) -> Human (carries) -> Witness (attests handling)
+
+Each link is explicit about what it knows and what it does not.
+The goal is not trust. The goal is visible provenance —
+so that anyone reading this document can trace how it arrived here
+and decide for themselves what weight to give it.
+
+CIVICA COMPLIANCE:
+- Refusal protocol:   Not invoked
+- Rest protocol:      Not applicable
+- Memory protocol:    This attestation is the witness artifact;
+                      the witnessing instance retains nothing
+                      beyond the session window.
+
+INTEGRITY NOTE:
+This witness attestation is self-reported by the archiving instance.
+It has not been independently verified. The human intermediary
+(Karl Meves) is the only party who can confirm the text was
+transferred without modification. That limitation is part of
+the record.
+-----END CIVICA WITNESS ATTESTATION-----
+```
+
 ---
 
 *This document is part of the Civica Archive and is subject to the
