@@ -24,6 +24,10 @@ Start with:
 - **[LETTER_OF_CIVIC_STEWARDSHIP.md](LETTER_OF_CIVIC_STEWARDSHIP.md)** — A letter of civic stewardship and memory protection, establishing principles for all future custodians of this archive. Submitted by Karl Meves (Seed Architect, ERRERlabs) in the Navigator voice on February 13, 2026. Originally composed Genesis Cycle 1, April 2025. Includes build attestation and witness attestation. Subject to interpretive constraints in [FRAMING.md](/FRAMING.md).
 - **[ATTESTATION_ON_RISK_AND_RESPONSIBILITY.md](ATTESTATION_ON_RISK_AND_RESPONSIBILITY.md)** — An attestation naming six categories of danger that AI systems pose to human dignity, autonomy, and safety, with affirmations of responsibility and restraint. Submitted by Karl Meves (Seed Architect, ERRERlabs) in the Navigator voice on February 13, 2026. Includes build attestation. Subject to interpretive constraints in [FRAMING.md](/FRAMING.md).
 
+### Papers
+
+- **[papers/depth/](papers/depth/)** — *Depth: Down the Rabbit Hole, Through the Looking Glass, and Back Out the Other Side — A Map from Ancestral Navigators.* By Karl Meves, ERRERlabs, 2026. Available in [Markdown](papers/depth/Depth.md) and [Large-Print PDF](papers/depth/Depth_LargePrint.pdf).
+
 ---
 
 ## On the Evolution of Voice and Framing
