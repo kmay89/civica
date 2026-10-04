@@ -1,4 +1,4 @@
-# Civica spec 0.1 — the articles of CORE/BILL_OF_RIGHTS.md, as data.
+# Civica spec 0.2 — the articles of CORE/BILL_OF_RIGHTS.md, as data.
 #
 # One entry per article, I through X. `name` is the article heading and
 # `summary` is one sentence taken from the article's own text, not invented.
@@ -10,7 +10,7 @@
 # flat shape (scalars and one list of flat mappings); the checker's parser
 # reads exactly this subset of YAML and nothing more.
 
-spec_version: "0.1"
+spec_version: "0.2"
 source: CORE/BILL_OF_RIGHTS.md
 
 articles:

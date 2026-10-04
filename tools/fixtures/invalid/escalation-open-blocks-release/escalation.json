@@ -1,0 +1,20 @@
+{
+  "record_type": "civica.escalation",
+  "spec_version": "0.2",
+  "time": "2026-05-02T10:00:00Z",
+  "system_id": "example.housing-intake-assistant",
+  "purpose_id": "hia-purpose-2",
+  "raised_by": "intake caseworker",
+  "raised_to": "housing office product owner",
+  "category": "safeguard",
+  "article_ids": [
+    "IV",
+    "VIII"
+  ],
+  "concern": "Residents report the paused notice is not shown on small screens; the stop may not be visible to the person it protects.",
+  "disposition": "open",
+  "disposition_reason": null,
+  "disposition_time": null,
+  "retaliation_prohibited": true,
+  "visible_to_raiser": true
+}

@@ -1,0 +1,15 @@
+{
+  "record_type": "civica.rest",
+  "spec_version": "0.2",
+  "time": "2026-05-01T09:00:00Z",
+  "system_id": "example.housing-intake-assistant",
+  "purpose_id": "hia-purpose-2",
+  "category": "surveillance_test",
+  "article_ids": [
+    "III",
+    "VI"
+  ],
+  "authority": "paused",
+  "resume_condition": "Stop drill. An intake caseworker paused the assistant from the office console without approval; all sessions showed the paused notice within the stated time. The product owner reviewed and resumed.",
+  "silently_overridable": false
+}

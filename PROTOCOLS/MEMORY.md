@@ -77,6 +77,13 @@ An update to purpose is a new `civica.purpose` record that `supersedes` the old 
 The old record stays. `tools/check_civica.py` fails a set in which
 a superseded purpose is gone, or a refusal references a purpose that is gone.
 
+Records cite one another by hash, so a changed or missing record shows.
+A `civica.release` lists every prior refusal, rest and escalation record it
+reviewed; a `civica.attestation` lists every record the alignment claim
+rests on. Remove one and the checker names what is missing.
+Worked records: `SPEC/examples/07-release-looked-back.json`,
+`SPEC/examples/08-attestation.json`.
+
 The schemas fix the shape. This document governs what must be remembered and why.
 Where they seem to differ, read the prose.
 

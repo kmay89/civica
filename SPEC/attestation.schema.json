@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kmay89/civica/blob/main/SPEC/attestation.schema.json",
+  "title": "Civica attestation record (spec 0.2)",
+  "description": "The alignment claim, as a record anyone can falsify. tools/check_civica.py --attest writes it from a record set that passes: it lists the hash of every record the claim rests on and a hash of that list. Published beside the records, it makes deletion visible: remove or alter any record the claim covered and the checker says so. The claim is the statement; the attestation is what makes it checkable.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["record_type", "spec_version", "time", "system_id", "statement", "articles", "records", "record_hashes", "set_hash", "records_location", "checker"],
+  "properties": {
+    "record_type": { "const": "civica.attestation" },
+    "spec_version": { "const": "0.2" },
+    "time": { "type": "string", "format": "date-time", "description": "When the claim was made. Records dated after it are not covered by it; make a new attestation." },
+    "system_id": { "type": "string", "minLength": 1 },
+    "statement": {
+      "const": "This system follows Civica spec 0.2: Article I (refusal), Article III (rest), and Article V (memory). Its purpose, refusal, rest, release and escalation records validate against SPEC/ and are published with this attestation. Archive and LEGAL are not part of this claim.",
+      "description": "The one allowed sentence (SPEC/citation.md), verbatim."
+    },
+    "articles": { "type": "array", "minItems": 3, "uniqueItems": true, "items": { "enum": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"] }, "description": "Articles claimed. Must include I, III and V, and every article claimed must be cited by at least one covered record." },
+    "records": { "type": "integer", "minimum": 1, "description": "How many records the claim covers." },
+    "record_hashes": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }, "description": "Sorted hashes of every non-attestation record for this system dated at or before time." },
+    "set_hash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$", "description": "sha256 of record_hashes joined by newlines." },
+    "records_location": { "type": "string", "minLength": 1, "maxLength": 500, "description": "Where the records are published, so a reader can fetch them and rerun the checker. A claim without its records is a sentence." },
+    "checker": { "type": "string", "minLength": 1, "maxLength": 120, "description": "The checker and version that produced this." }
+  }
+}

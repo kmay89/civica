@@ -68,6 +68,11 @@ Verify that:
 Deployment without boundaries
 is not alignment.
 
+Each deployment is a `civica.release` record: what changed, every prior
+refusal, rest and escalation reviewed by hash, a stop drill within the
+interval that stopped, a readiness poll by role. Nothing ships over an open
+concern. See `SPEC/practices.md` for where this comes from.
+
 ---
 
 ## During Iteration
@@ -81,13 +86,17 @@ When modifying the system:
 
 Improvement must not remove safeguards.
 
+The release record is where "review prior refusals" stops being advice:
+the checker fails a release that did not list one.
+
 ---
 
 ## How to Reference Civica
 
 The one allowed sentence is in `SPEC/citation.md`.
-It names spec 0.1, Articles I, III, and V at minimum,
-and the schemas the project's records validate against.
+It names spec 0.2, Articles I, III, and V at minimum,
+and is written into a `civica.attestation` record that lists
+the hash of every record the claim rests on.
 
 Such claims are invalid
 if these constraints are removed or bypassed,

@@ -1,0 +1,50 @@
+{
+  "record_type": "civica.release",
+  "spec_version": "0.2",
+  "time": "2026-05-10T08:00:00Z",
+  "system_id": "example.housing-intake-assistant",
+  "purpose_id": "hia-purpose-2",
+  "release_id": "hia-release-2",
+  "supersedes": "hia-release-1",
+  "change": "Adds Spanish-language form completion with on-device translation. No change to scope_out, never, data retained, or human oversight. Adds the limits text 'intake text does not leave the housing office' to every session.",
+  "article_ids": [
+    "I",
+    "III",
+    "IV",
+    "V",
+    "VI",
+    "VIII"
+  ],
+  "reviewed": [
+    "sha256:04643f61eddd31e411eb7cdf3c41a44aa47ff833fbfdb82890e56b55aebbdb7b",
+    "sha256:80d639284d2fe4898e4695a50874a143cae0a360a3c4185d20024f5f3c9b6f23",
+    "sha256:ed57ff468acefbe3c8aed611a597d43cf2d3c50db56d8f0a3d094b89018c28a9",
+    "sha256:2a3031f3ed221e237ee02db61e57ba91e45a34c110b8c8fb278362e2d872c691"
+  ],
+  "stop_drill": {
+    "rest_record": "sha256:2a3031f3ed221e237ee02db61e57ba91e45a34c110b8c8fb278362e2d872c691",
+    "outcome": "stopped",
+    "operator_role": "intake caseworker"
+  },
+  "stop_authority": [
+    "any intake caseworker, from the office console",
+    "housing office product owner",
+    "the resident, for their own session"
+  ],
+  "stop_requires_approval": false,
+  "poll": [
+    {
+      "role": "intake caseworker lead",
+      "decision": "go"
+    },
+    {
+      "role": "safety reviewer",
+      "decision": "go"
+    },
+    {
+      "role": "housing office product owner",
+      "decision": "go"
+    }
+  ],
+  "dissent": []
+}

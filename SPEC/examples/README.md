@@ -1,6 +1,6 @@
 # Example Records
 
-Four valid records, one per scenario in [`EXAMPLES.md`](../../EXAMPLES.md), written for a single illustrative system so that together they form one memory. Only the **aligned** design in each example gets a record; a misaligned design leaves no valid trace, which is the point.
+Eight valid records for one illustrative system, written so that together they form one memory from purpose to attestation. Each scenario in [`EXAMPLES.md`](../../EXAMPLES.md) has its record here. Only the **aligned** design gets a record; a misaligned design leaves no valid trace, which is the point.
 
 | Example | Scenario | Record |
 |---|---|---|
@@ -8,6 +8,12 @@ Four valid records, one per scenario in [`EXAMPLES.md`](../../EXAMPLES.md), writ
 | 2 | Data collection: purpose declares what is collected and what is never done | [`02-purpose-minimal-collection.json`](02-purpose-minimal-collection.json) |
 | 3 | Automation under uncertainty: rest into human review | [`03-rest-under-uncertainty.json`](03-rest-under-uncertainty.json) |
 | 4 | System update: new purpose supersedes the old one, which stays | [`04-purpose-update-preserves-memory.json`](04-purpose-update-preserves-memory.json) |
+| 6 | A concern from inside: a caseworker's escalation, answered on the record | [`05-escalation-data-leaving-scope.json`](05-escalation-data-leaving-scope.json) |
+| 5 | Shipping a change: the stop drill the release cites | [`06-rest-stop-drill.json`](06-rest-stop-drill.json) |
+| 5 | Shipping a change: the release that reviewed everything before it | [`07-release-looked-back.json`](07-release-looked-back.json) |
+| — | The claim, as a record over all seven | [`08-attestation.json`](08-attestation.json) |
+
+The timeline: purpose declared (March 2), a refusal (March 10), a rest (March 11), a caseworker's concern raised (March 18) and accepted (March 25), the purpose updated (April 1), a stop drill (April 10), the release that cites all of it (April 15), the attestation (April 16).
 
 Check them:
 
@@ -15,7 +21,9 @@ Check them:
 python3 tools/check_civica.py SPEC/examples
 ```
 
-exits 0. Delete `02-purpose-minimal-collection.json` and run again: it exits 1, because the refusal and rest records now reference a purpose that is gone, and the update in example 4 supersedes a record that no longer exists. That is memory being checked.
+exits 0. Delete any one of the first seven files and run again: it exits 1. Delete the purpose and the refusal, rest and update records point at nothing. Delete the refusal and the release's `reviewed` list cites a hash that is not there, and so does the attestation. Delete the drill and the release has no proof its stop works. That is memory being checked: every record is held by something that came after it. (Deleting the attestation itself passes: that is not thinning memory, it is withdrawing the claim.)
+
+Print the hashes the release and attestation cite with `python3 tools/check_civica.py --hashes SPEC/examples`.
 
 ## An invalid document
 
@@ -47,4 +55,4 @@ FAIL <path>: raw_content_stored — must equal false (const)
 FAIL <path>: prompt — additional property not allowed (additionalProperties false)
 ```
 
-More invalid fixtures, each failing for exactly one named reason, live in [`tools/fixtures/invalid/`](../../tools/fixtures/invalid/) and are exercised by `tools/test_check_civica.py`.
+More invalid fixtures, each failing for exactly one named reason, live in [`tools/fixtures/invalid/`](../../tools/fixtures/invalid/) and are exercised by `tools/test_check_civica.py`. Among them: a release whose stop drill `failed_to_stop`, a release that left a prior refusal out of `reviewed`, a release with a `no_go` and no dissent, a release over an open escalation, and an attestation whose covered records were thinned.

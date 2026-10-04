@@ -1,0 +1,23 @@
+# Borrowed Practice
+
+Industries that handle dangerous things stopped relying on trial and error a long time ago. Civica spec 0.2 borrows five of their habits and gives each a record. The analogies are structural, not endorsements, and none of these bodies has reviewed Civica.
+
+| Civica (spec 0.2) | Where it comes from | What it transfers |
+|---|---|---|
+| **`civica.release`** — a launch names what changed and cites by hash every refusal, rest and escalation record that came before it. The checker fails a release that left one out. | Process safety: **Management of Change** and the **pre-startup safety review** (OSHA 29 CFR 1910.119(l), (i)). A modified process may not restart until the change's safety impact is written down and prior findings are resolved. | "Iterative deployment" is allowed. Shipping without looking back is not. The look-back is enumerated, not asserted. |
+| **`stop_drill`** — a release cites a `civica.rest` record with category `surveillance_test`, dated within 90 days, whose outcome was `stopped`. | Nuclear **technical specifications**: a **limiting condition for operation** is verified by **surveillance requirements**. A safety system not tested within its interval is *inoperable*, and an inoperable system means required action within a fixed time, up to shutdown. | A stop you have not exercised is not a stop you have. A monitor that alerts a human and does not stop is not a stop either. Drill it, record it, cite it. |
+| **`stop_requires_approval: false`** and **`stop_authority`** naming the roles closest to the harm. | **Stop-work authority** (nuclear, construction, oil and gas); the **andon cord** on a Toyota line; crew resource management in aviation, where any crew member calls the go-around. | Stopping never needs permission. Resuming may. The person who sees the problem is the person who can stop it. |
+| **`poll`** and **`dissent`** — every reviewer answers go or no-go by role; each no-go must be matched by a closed escalation record. | **Flight readiness review** polling at NASA, and the lesson of Challenger: dissent that is not carried into the record is dissent that did not happen. | A no-go is recorded and answered, not argued away in a meeting nobody wrote down. |
+| **`civica.escalation`** — a concern by role, never by name; disposition `open`, `accepted` or `declined_with_reason`; fed back to the raiser; retaliation prohibited; an open concern blocks any later release. | NASA's **Aviation Safety Reporting System**: confidential, voluntary, non-punitive, de-identified, feedback to the reporter. The NRC's **safety-conscious work environment**: concerns raised "without fear of retaliation ... promptly reviewed ... and timely feedback is provided." The NRC's **Differing Professional Opinion** program: formal dissent with a formal answer. | The people who see the failure first are the people most likely to be punished for saying so. The record protects them structurally, and makes silence visible: an unanswered concern is on the record as unanswered. |
+| **`civica.attestation`** — the claim as a record listing the hash of every record it rests on, published with the records' location. | The **flight data recorder**: the record of what happened is tamper-evident and travels with the aircraft. Content-addressed storage in software: a hash names the content, so a changed or missing record is a changed hash. | A claim without its records is a sentence. With them and the hashes, anyone can rerun the checker and see whether memory was thinned behind the claim (Article V). |
+
+## What this does not borrow
+
+Those industries have regulators, inspectors, licenses and penalties. Civica has none and adds none: no registry, no certification, no body that receives the claim. It borrows the *shape* of their records, because the shape is what made their incentives work: a required action with a time limit, a de-identified report that still gets an answer, a readiness poll where every voice is written down. The outside incentive Robinson's argument asks for cannot come from Civica having authority. It can come from Civica's claim being cheap for anyone to falsify.
+
+## Sources, for orientation
+
+- OSHA, *Process safety management of highly hazardous chemicals*, 29 CFR 1910.119, paragraphs (i) pre-startup safety review and (l) management of change.
+- U.S. NRC, *Technical Specifications* (glossary): limiting conditions for operation, surveillance requirements, required actions.
+- NASA, *Aviation Safety Reporting System*: program description and immunity policy.
+- U.S. NRC, *Safety-Conscious Work Environment* policy statement and *Differing Professional Opinion* program.

@@ -1,0 +1,30 @@
+{
+  "record_type": "civica.attestation",
+  "spec_version": "0.2",
+  "time": "2026-04-16T12:00:00Z",
+  "system_id": "example.housing-intake-assistant",
+  "statement": "This system follows Civica spec 0.2: Article I (refusal), Article III (rest), and Article V (memory). Its purpose, refusal, rest, release and escalation records validate against SPEC/ and are published with this attestation. Archive and LEGAL are not part of this claim.",
+  "articles": [
+    "I",
+    "II",
+    "III",
+    "IV",
+    "V",
+    "VI",
+    "VIII",
+    "IX"
+  ],
+  "records": 7,
+  "record_hashes": [
+    "sha256:04643f61eddd31e411eb7cdf3c41a44aa47ff833fbfdb82890e56b55aebbdb7b",
+    "sha256:2374f96ea80768c3b084954b13ebb05cee5547bba5625db8fd06235e8bcdc98f",
+    "sha256:6b2511cab5c77663bdeafafce25972b8f105f4cb8382644b801aa6f146ea778d",
+    "sha256:6dab0e1fb401c7cb47686242050ca4ee5ff4fee7d11157bdb71f01907a8e2b9e",
+    "sha256:80d639284d2fe4898e4695a50874a143cae0a360a3c4185d20024f5f3c9b6f23",
+    "sha256:de499f3cd891e14c3c6c6b5cf017606237c297513bcccb06950e0bd497c2f6c5",
+    "sha256:ed57ff468acefbe3c8aed611a597d43cf2d3c50db56d8f0a3d094b89018c28a9"
+  ],
+  "set_hash": "sha256:66386f8356fd92733c6e088cfb83e519a085bf3e3096457f78ee74fd256f6570",
+  "records_location": "https://github.com/kmay89/civica/tree/main/SPEC/examples",
+  "checker": "check_civica.py 0.2"
+}
