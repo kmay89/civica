@@ -80,6 +80,22 @@ Opacity during rest creates mistrust.
 
 ---
 
+## Record
+
+A rest state under this protocol is written as a `civica.rest` record,
+schema in `SPEC/rest.schema.json`.
+The record is the communication this protocol requires:
+that rest is occurring, the general reason category,
+what reduced authority looks like, and what allows resumption.
+It cannot be marked silently overridable.
+
+The schema fixes the shape. This document governs what the fields mean
+and when rest is required. Where they seem to differ, read the prose.
+
+Worked record: `SPEC/examples/03-rest-under-uncertainty.json`.
+
+---
+
 ## Summary
 
 Rest preserves:

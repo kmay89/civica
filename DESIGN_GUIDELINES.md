@@ -85,15 +85,13 @@ Improvement must not remove safeguards.
 
 ## How to Reference Civica
 
-Projects may state:
-
-> “This system follows Civica design principles,
-> including the Right to Refusal (Article I),
-> the Right to Rest (Article III),
-> and the Right to Memory (Article V).”
+The one allowed sentence is in `SPEC/citation.md`.
+It names spec 0.1, Articles I, III, and V at minimum,
+and the schemas the project's records validate against.
 
 Such claims are invalid
-if these constraints are removed or bypassed.
+if these constraints are removed or bypassed,
+and the claim never covers `ARCHIVE/` or `LEGAL/`.
 
 ---
 

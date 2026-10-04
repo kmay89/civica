@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kmay89/civica/blob/main/SPEC/rest.schema.json",
+  "title": "Civica rest record (spec 0.1)",
+  "description": "The record a Civica-aligned system writes when it enters rest (PROTOCOLS/REST.md, Article III). The record is the communication REST.md requires: that rest is occurring, the general reason category, and what allows resumption. It cannot be marked silently overridable.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "spec_version",
+    "time",
+    "system_id",
+    "purpose_id",
+    "category",
+    "article_ids",
+    "authority",
+    "resume_condition",
+    "silently_overridable"
+  ],
+  "properties": {
+    "record_type": { "const": "civica.rest" },
+    "spec_version": { "const": "0.1" },
+    "time": { "type": "string", "format": "date-time" },
+    "system_id": { "type": "string", "minLength": 1 },
+    "purpose_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Must match the purpose_id of a civica.purpose record in the same set."
+    },
+    "category": {
+      "enum": [
+        "repeated_refusal",
+        "unresolved_uncertainty",
+        "conflicting_constraints",
+        "error_rate",
+        "oversight_unavailable",
+        "external_pressure"
+      ],
+      "description": "The rest condition from PROTOCOLS/REST.md, in its order."
+    },
+    "article_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"] }
+    },
+    "authority": {
+      "enum": ["paused", "rate_limited", "deferred", "read_only", "human_review"],
+      "description": "What rest looks like here (PROTOCOLS/REST.md): reduced authority, not shutdown."
+    },
+    "resume_condition": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 280,
+      "description": "The condition under which the system resumes. Required: rest with no way back is shutdown, and hidden resumption is a silent override."
+    },
+    "silently_overridable": {
+      "const": false,
+      "description": "Always false. Rest may be ended by a human with a record of it; never silently."
+    }
+  }
+}

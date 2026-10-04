@@ -1,5 +1,7 @@
 # LEGAL-002: Ethical Limitation Declaration for the Navigator Pattern
 
+**Status: author declaration, non-normative. See [LEGAL/README.md](README.md). Normative constraints live in [CORE/](../CORE/) and [SPEC/](../SPEC/).**
+
 > **Revision note:** This document was originally drafted April 2025 and has been revised
 > for clarity and consistency with current Civica framing.
 

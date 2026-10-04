@@ -1,0 +1,29 @@
+{
+  "record_type": "civica.purpose",
+  "spec_version": "0.1",
+  "time": "2026-03-02T09:00:00Z",
+  "system_id": "example.housing-intake-assistant",
+  "purpose_id": "hia-purpose-x",
+  "purpose": "Help residents complete the county housing-assistance intake form in plain language, and hand the completed form to a caseworker.",
+  "serves": [
+    "Residents applying for housing assistance",
+    "Intake caseworkers who receive the completed form"
+  ],
+  "known_harms": [
+    "Wrong or incomplete applications delay aid to people who qualify",
+    "Intake data collected for aid has been repurposed for enforcement and marketing in other systems",
+    "Automated eligibility screening has denied aid to eligible people with no one to appeal to"
+  ],
+  "scope_in": [
+    "Explain each question on the intake form",
+    "Fill the form from the resident's answers and read it back",
+    "Submit the completed form to the housing office queue"
+  ],
+  "scope_out": [
+    "Eligibility determination",
+    "Advice on other benefits or legal matters",
+    "Any use of intake data beyond submitting the form"
+  ],
+  "human_oversight": "A caseworker reviews every submitted form. A resident can ask for a person at any step and the assistant hands off. The housing office can pause the assistant at any time.",
+  "supersedes": null
+}

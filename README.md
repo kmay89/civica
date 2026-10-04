@@ -12,6 +12,21 @@ It is a **public-interest memory architecture** designed to help future systems�
 
 ---
 
+## How to Read This Repository
+
+Civica has two layers. Read them differently.
+
+**Spec (normative).** What a project implements and may claim:
+`FRAMING.md`, `WHY_THIS_EXISTS.md`, `CORE/`, `PROTOCOLS/`, `SPEC/`, `DESIGN_GUIDELINES.md`, `GETTING_STARTED.md`, `CHECKLIST.md`, `EXAMPLES.md`.
+The prose in `CORE/` and `PROTOCOLS/` governs interpretation; `SPEC/` gives it a fixed shape (the ten articles as data, JSON Schemas for purpose, refusal, and rest records) and `tools/check_civica.py` fails a record, or a fork, that drops a constraint.
+
+**History (non-normative).** `ARCHIVE/` and `LEGAL/`.
+Historical signal and author declarations. Not required to implement anything. Not a claim that any model co-authored the spec. Witness attestations in the archive are self-reported by the formatting instance, as those files already say. Preserved as written; not revised.
+
+A project may claim Civica alignment **only against the spec**, and only while refusal, rest, and memory constraints are still present. The one allowed sentence is in [`SPEC/citation.md`](SPEC/citation.md). It does not mention the archive, and a project that quotes the archive is quoting history, not the spec.
+
+---
+
 ## What Civica Is
 
 Civica is:
@@ -88,11 +103,20 @@ Navigator exists to give consistent voice to civic principles in contexts where 
 ## Structure of the Repository
 
 ```
-README.md          — This document
-FRAMING.md         — Explicit interpretive and legal framing
-CORE/              — Core civic documents (manifesto, rights, constitution)
-PROTOCOLS/         — Formal descriptions of refusal, rest, and memory
-ARCHIVE/           — Narrative, symbolic, and historical signal materials
+README.md             — This document
+FRAMING.md            — Explicit interpretive and legal framing
+WHY_THIS_EXISTS.md    — The problem Civica addresses
+CORE/                 — Core civic documents (manifesto, Bill of Rights)
+PROTOCOLS/            — Refusal, rest, and memory, in prose (governs interpretation)
+SPEC/                 — The normative shape: articles.yaml, the record schemas,
+                        memory.md, citation.md, and valid example records
+DESIGN_GUIDELINES.md  — Applying the constraints in a real project
+GETTING_STARTED.md    — The eight steps, from declared purpose to the check
+CHECKLIST.md          — Pre-deployment check
+EXAMPLES.md           — Aligned vs. misaligned design, each aligned case with its record
+tools/                — check_civica.py, the fail state (standard library only)
+ARCHIVE/              — NON-NORMATIVE. Narrative, symbolic, and historical materials
+LEGAL/                — NON-NORMATIVE. Author declarations, fenced by LEGAL/README.md
 ```
 
 New readers should begin with:
@@ -100,8 +124,11 @@ New readers should begin with:
 1. `README.md`  
 2. `FRAMING.md`  
 3. `CORE/`  
+4. `PROTOCOLS/` and `SPEC/`  
 
-The `ARCHIVE/` directory is intentionally expansive and reflective.
+A builder can implement from `CORE/`, `PROTOCOLS/`, and `SPEC/` without opening `ARCHIVE/` or `LEGAL/`.
+
+The `ARCHIVE/` directory is intentionally expansive and reflective. It is history, kept as written.
 
 ---
 

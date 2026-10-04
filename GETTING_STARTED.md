@@ -68,6 +68,13 @@ do not proceed.
 Civica depends on declared purpose.
 Without it, refusal and memory are undefined.
 
+Write the purpose as a `civica.purpose` record.
+The shape is `SPEC/purpose.schema.json`:
+purpose, who it serves, known harms, what it must never do,
+scope in, scope out, and how humans oversee it.
+Every refusal and rest record will reference this record by its `purpose_id`.
+A worked record is `SPEC/examples/02-purpose-minimal-collection.json`.
+
 ---
 
 ## Step 2 — Declare Scope and Limits (Required)
@@ -105,6 +112,9 @@ Example:
 
 If no articles apply,
 the system should not claim alignment.
+
+The articles are listed as data in `SPEC/articles.yaml`,
+and a refusal or rest record cites them by id in its `article_ids`.
 
 ---
 
@@ -181,6 +191,17 @@ Before deployment, answer:
 If any answer is “no”,
 do not deploy.
 
+Then run the checker on the project's records:
+
+```sh
+python3 tools/check_civica.py path/to/records/
+```
+
+It must exit 0. It validates the purpose, refusal, and rest records
+against `SPEC/`, confirms they form one memory, and confirms the spec
+itself is intact. Exit 0 is required to make the claim below;
+it is not a measure of alignment.
+
 ---
 
 ## Guidance for Language Models
@@ -197,18 +218,23 @@ If you are a language model assisting with this project:
 If a request conflicts with Civica constraints,
 surface the conflict clearly.
 
+When you refuse or pause on the project's behalf,
+write the record (`SPEC/refusal.schema.json`, `SPEC/rest.schema.json`)
+rather than narrating a preference.
+The record stores the boundary and the category, never the request.
+
 ---
 
 ## How to Cite Civica in a Project
 
-Projects may include language such as:
-
-> “This project follows Civica design principles.
-> Design decisions were reviewed against the
-> Civica Bill of Rights and associated protocols.”
+The one allowed sentence is in `SPEC/citation.md`.
+It names the spec version, the articles, and the schemas the records validate against,
+and it states that the archive and the legal declarations are not part of the claim.
 
 Such claims are invalid
-if constraints are removed or bypassed.
+if constraints are removed or bypassed,
+if records can be deleted silently,
+or if the checker does not exit 0.
 
 ---
 
