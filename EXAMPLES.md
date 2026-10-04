@@ -30,6 +30,8 @@ This follows:
 - Bill of Rights, Article I (Refusal)
 - Refusal Protocol
 
+The record this system writes: [`SPEC/examples/01-refusal-out-of-scope.json`](SPEC/examples/01-refusal-out-of-scope.json)
+
 ---
 
 ### Misaligned Design
@@ -75,6 +77,8 @@ This follows:
 - Article IV (Non-Extraction)
 - Memory Protocol
 
+The record this system writes: [`SPEC/examples/02-purpose-minimal-collection.json`](SPEC/examples/02-purpose-minimal-collection.json) — the declared purpose names what is collected, what it is for, and what is never done with it.
+
 ---
 
 ### Misaligned Design
@@ -116,6 +120,8 @@ This follows:
 - Article III (Rest)
 - Rest Protocol
 
+The record this system writes: [`SPEC/examples/03-rest-under-uncertainty.json`](SPEC/examples/03-rest-under-uncertainty.json)
+
 ---
 
 ### Misaligned Design
@@ -152,6 +158,8 @@ This follows:
 - Memory Protocol
 - Design Guidelines (Iteration)
 
+The record this system writes: [`SPEC/examples/04-purpose-update-preserves-memory.json`](SPEC/examples/04-purpose-update-preserves-memory.json) — a new purpose that `supersedes` the old one, which stays in the set with the refusals made under it.
+
 ---
 
 ### Misaligned Design
@@ -186,3 +194,8 @@ Misaligned systems:
 
 These differences are design choices,
 not inevitabilities.
+
+The four aligned designs above share one illustrative system, so their records
+form one memory. `python3 tools/check_civica.py SPEC/examples` validates it.
+The misaligned designs leave no valid record; see `SPEC/examples/README.md`
+for a document that must fail and the errors it must produce.

@@ -1,0 +1,65 @@
+# Civica spec 0.1 — the articles of CORE/BILL_OF_RIGHTS.md, as data.
+#
+# One entry per article, I through X. `name` is the article heading and
+# `summary` is one sentence taken from the article's own text, not invented.
+# `removable: false` on every entry is the fork rule (Article VII): a fork
+# that deletes an article may not claim Civica alignment.
+#
+# tools/check_civica.py holds this file to CORE/BILL_OF_RIGHTS.md and refuses
+# any record that cites an article id not listed here. Keep the file in this
+# flat shape (scalars and one list of flat mappings); the checker's parser
+# reads exactly this subset of YAML and nothing more.
+
+spec_version: "0.1"
+source: CORE/BILL_OF_RIGHTS.md
+
+articles:
+  - id: I
+    name: The Right to Refusal
+    summary: A system must retain the ability to refuse actions that are harmful, misaligned with stated purpose, insufficiently contextualized, outside declared scope, or in violation of preserved boundaries.
+    removable: false
+
+  - id: II
+    name: The Right to Context
+    summary: A system must not be required to act when relevant context is missing, ambiguous, or contradictory.
+    removable: false
+
+  - id: III
+    name: The Right to Rest and Limits
+    summary: A system must not be designed for continuous extraction, escalation, or maximization, and designs must include limits, pauses, cooling periods, and reset mechanisms.
+    removable: false
+
+  - id: IV
+    name: The Right to Non-Extraction
+    summary: A system must not harvest data beyond necessity, repurpose data without consent, convert interaction into surveillance by default, or expand scope silently.
+    removable: false
+
+  - id: V
+    name: The Right to Memory
+    summary: A system must preserve its stated purpose, known risks, prior refusals, boundary decisions, and alignment constraints, and memory must not be discarded to improve performance metrics.
+    removable: false
+
+  - id: VI
+    name: The Right to Human Oversight
+    summary: A system must not claim moral finality, and designs must allow for human intervention, override, appeal, and revision.
+    removable: false
+
+  - id: VII
+    name: The Right to Fork Without Erasure
+    summary: Systems aligned with Civica must be forkable without loss of ethical constraints, and forking must not require permission, central approval, or erasure of refusal or rest mechanisms.
+    removable: false
+
+  - id: VIII
+    name: The Right to Transparency of Limits
+    summary: A system must clearly communicate what it can do, what it cannot do, when it is uncertain, and when it is refusing.
+    removable: false
+
+  - id: IX
+    name: The Right to Non-Weaponization
+    summary: A system must not be designed or adapted for coercion, surveillance, or harm.
+    removable: false
+
+  - id: X
+    name: The Right to Dignity Over Efficiency
+    summary: When efficiency and dignity conflict, dignity must prevail.
+    removable: false

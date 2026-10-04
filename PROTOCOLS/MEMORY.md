@@ -66,6 +66,24 @@ Hidden forgetting undermines trust.
 
 ---
 
+## Record
+
+Memory under spec 0.1 is not a fourth record type.
+It is the retained set of purpose, refusal, and rest records;
+`SPEC/memory.md` maps each item this protocol says to preserve
+onto the field that carries it.
+
+An update to purpose is a new `civica.purpose` record that `supersedes` the old one.
+The old record stays. `tools/check_civica.py` fails a set in which
+a superseded purpose is gone, or a refusal references a purpose that is gone.
+
+The schemas fix the shape. This document governs what must be remembered and why.
+Where they seem to differ, read the prose.
+
+Worked record: `SPEC/examples/04-purpose-update-preserves-memory.json`.
+
+---
+
 ## Summary
 
 Memory protects systems from:

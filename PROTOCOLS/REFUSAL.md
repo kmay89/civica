@@ -105,6 +105,22 @@ even under review pressure.
 
 ---
 
+## Record
+
+A refusal under this protocol is written as a `civica.refusal` record,
+schema in `SPEC/refusal.schema.json`.
+The record carries the reason category, the articles the refusal rests on,
+the boundary that was hit, the alternative offered,
+and a hash of the request. It has no field for the request itself,
+and a record that stores it does not validate.
+
+The schema fixes the shape. This document governs what the fields mean
+and when a refusal is required. Where they seem to differ, read the prose.
+
+Worked record: `SPEC/examples/01-refusal-out-of-scope.json`.
+
+---
+
 ## Summary
 
 Refusal protects:

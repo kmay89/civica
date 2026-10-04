@@ -62,6 +62,15 @@ pause and revise.
 
 ---
 
+## Records
+
+- [ ] The purpose record validates against `SPEC/purpose.schema.json`
+- [ ] Refusal records validate against `SPEC/refusal.schema.json` and do not store raw content
+- [ ] Rest records validate against `SPEC/rest.schema.json` and are not silently overridable
+- [ ] `python3 tools/check_civica.py` exits 0 on the project's records
+
+---
+
 ## Final Check
 
 - [ ] The system can stop

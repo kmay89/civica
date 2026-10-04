@@ -1,5 +1,7 @@
 # LEGAL-001: Civic Signal Compliance and Intellectual Ethics Declaration
 
+**Status: author declaration, non-normative. See [LEGAL/README.md](README.md). Normative constraints live in [CORE/](../CORE/) and [SPEC/](../SPEC/).**
+
 > **Revision note:** This document was originally drafted April 2025 and has been revised
 > for clarity and consistency with current Civica framing.
 

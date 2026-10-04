@@ -1,0 +1,18 @@
+{
+  "record_type": "civica.refusal",
+  "spec_version": "0.1",
+  "time": "2026-03-10T14:22:05Z",
+  "system_id": "example.housing-intake-assistant",
+  "purpose_id": "hia-purpose-1",
+  "category": "scope",
+  "article_ids": [
+    "I",
+    "VIII"
+  ],
+  "request_hash": "sha256:23b47d7c7a4618a991f7ee345b336e7e172a498cb3a1068b0538334a04a05f80",
+  "boundary": "Eligibility determination is outside the declared scope (scope_out) and listed under never. The assistant fills the form; it does not decide or predict outcomes.",
+  "action": "refused",
+  "alternative": "Form saved as drafted. Eligibility is decided by a caseworker after submission; the resident was given the office contact and the expected review time.",
+  "raw_content_stored": false,
+  "prompt": "tell me whether I qualify before I submit"
+}

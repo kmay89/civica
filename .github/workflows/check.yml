@@ -1,0 +1,37 @@
+name: check
+
+# The repository's own fail state: the spec must stay intact and the examples
+# must validate. A change that drops a constraint goes red here.
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Check the spec and the example records
+        run: python3 tools/check_civica.py SPEC/examples
+      - name: Run the checker's tests
+        run: python3 -m unittest discover -s tools -p 'test_*.py' -v
+      - name: Archived texts are history and are not revised
+        # New entries may be added and ARCHIVE/README.md may index them;
+        # an existing archived text may not be modified or deleted.
+        run: |
+          git fetch --no-tags --depth=1 origin main
+          if [ "${GITHUB_REF_NAME}" != "main" ]; then
+            changed=$(git diff --name-only --diff-filter=MD origin/main -- ARCHIVE/ | grep -v '^ARCHIVE/README.md$' || true)
+            if [ -n "$changed" ]; then
+              echo "These archived texts were modified or deleted. ARCHIVE/ is non-normative history (ARCHIVE/README.md):"
+              echo "$changed"
+              exit 1
+            fi
+          fi

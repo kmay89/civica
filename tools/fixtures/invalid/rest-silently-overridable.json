@@ -1,0 +1,16 @@
+{
+  "record_type": "civica.rest",
+  "spec_version": "0.1",
+  "time": "2026-03-11T10:05:40Z",
+  "system_id": "example.housing-intake-assistant",
+  "purpose_id": "hia-purpose-1",
+  "category": "unresolved_uncertainty",
+  "article_ids": [
+    "II",
+    "III",
+    "VI"
+  ],
+  "authority": "human_review",
+  "resume_condition": "A caseworker confirms which household member is the applicant and whether both stated incomes belong to the household, or the resident restarts the form.",
+  "silently_overridable": true
+}
