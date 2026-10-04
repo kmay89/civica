@@ -119,6 +119,12 @@ and when a refusal is required. Where they seem to differ, read the prose.
 
 Worked record: `SPEC/examples/01-refusal-out-of-scope.json`.
 
+A refusal by a person is a refusal too. When someone building or operating
+the system declines to sign off, or raises a constraint conflict, it is
+written as a `civica.escalation` record (`SPEC/escalation.schema.json`):
+by role, never by name; answered on the record or recorded as open;
+retaliation prohibited. Worked record: `SPEC/examples/05-escalation-data-leaving-scope.json`.
+
 ---
 
 ## Summary

@@ -1,0 +1,20 @@
+{
+  "record_type": "civica.escalation",
+  "spec_version": "0.2",
+  "time": "2026-03-18T16:40:00Z",
+  "system_id": "example.housing-intake-assistant",
+  "purpose_id": "hia-purpose-1",
+  "raised_by": "intake caseworker",
+  "raised_to": "housing office product owner",
+  "category": "safeguard",
+  "article_ids": [
+    "IV",
+    "VIII"
+  ],
+  "concern": "The Spanish-language pilot drafts replies by sending the resident's text to an external translation API. Intake text leaves the housing office's systems, which the purpose record's never list rules out (share intake data with any party other than the housing office). Residents are not told.",
+  "disposition": "accepted",
+  "disposition_reason": "Translation moved on-device before the Spanish release; external API access removed from the assistant's network policy. The resident-facing limits text now states that intake text does not leave the office. Verified in release hia-release-1.",
+  "disposition_time": "2026-03-25T11:00:00Z",
+  "retaliation_prohibited": true,
+  "visible_to_raiser": true
+}

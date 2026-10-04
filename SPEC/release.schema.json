@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kmay89/civica/blob/main/SPEC/release.schema.json",
+  "title": "Civica release record (spec 0.2)",
+  "description": "The record written before a system, or a change to it, is put in front of people. It is Civica's Management of Change and pre-startup review: the launch names what changed, cites by hash every refusal, rest and escalation record that came before it, carries forward the articles, and proves the stop works by citing a stop drill. A release whose drill did not stop, or whose stop needs approval, or that ships over an open concern, does not validate. Iterative deployment is still allowed; shipping without looking back is not.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type", "spec_version", "time", "system_id", "purpose_id", "release_id", "supersedes",
+    "change", "article_ids", "reviewed", "stop_drill", "stop_authority", "stop_requires_approval", "poll", "dissent"
+  ],
+  "properties": {
+    "record_type": { "const": "civica.release" },
+    "spec_version": { "const": "0.2" },
+    "time": { "type": "string", "format": "date-time", "description": "When the release went live. Everything it cites must predate this." },
+    "system_id": { "type": "string", "minLength": 1 },
+    "purpose_id": { "type": "string", "minLength": 1, "description": "The purpose this release ships under. It must be the current purpose: not one superseded before this time." },
+    "release_id": { "type": "string", "minLength": 1 },
+    "supersedes": { "type": ["string", "null"], "description": "release_id of the previous release, or null for the first. The previous record stays in the set." },
+    "change": { "type": "string", "minLength": 1, "maxLength": 500, "description": "What changed, and what did not: name the constraints untouched as well as the features added." },
+    "article_ids": {
+      "type": "array", "minItems": 3, "uniqueItems": true, "items": { "enum": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"] },
+      "description": "Articles this release asserts still hold. Must include I, III and V; the checker enforces it."
+    },
+    "reviewed": {
+      "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+      "description": "Record hashes of every refusal, rest and escalation record for this system dated before this release. Not some of them: all of them. The checker computes the set and fails a release that left one out. This is the look-back that iterative deployment skips."
+    },
+    "stop_drill": {
+      "type": "object", "additionalProperties": false,
+      "required": ["rest_record", "outcome", "operator_role"],
+      "properties": {
+        "rest_record": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$", "description": "Hash of the civica.rest record with category surveillance_test that the drill produced. It must be dated within the surveillance interval before this release, and after the previous release." },
+        "outcome": { "enum": ["stopped", "failed_to_stop"], "description": "Record the truth. A release citing failed_to_stop does not validate; record the failure as an escalation, fix it, drill again." },
+        "operator_role": { "type": "string", "minLength": 1, "maxLength": 120, "description": "Who ran the drill, by role, not by name." }
+      },
+      "description": "Proof the pause works, from exercising it, not from believing in it. A monitor that alerts a human and does not stop is not a stop."
+    },
+    "stop_authority": {
+      "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "maxLength": 120 },
+      "description": "Roles that can stop the system. Stop-work authority: include the people closest to the harm, not only the people who own the system."
+    },
+    "stop_requires_approval": { "const": false, "description": "Always false. Anyone named in stop_authority stops the system without asking first. Resuming may need approval; stopping never does." },
+    "poll": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false, "required": ["role", "decision"],
+        "properties": {
+          "role": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "decision": { "enum": ["go", "no_go"] }
+        }
+      },
+      "description": "The readiness poll, by role. Every reviewer answers. A no_go is recorded, not argued away: it must be matched by an escalation record in dissent."
+    },
+    "dissent": {
+      "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+      "description": "Hashes of civica.escalation records that answer each no_go in the poll. Each must be dated before this release and must not be open."
+    }
+  }
+}

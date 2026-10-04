@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kmay89/civica/blob/main/SPEC/escalation.schema.json",
+  "title": "Civica escalation record (spec 0.2)",
+  "description": "A person raised a constraint conflict about the system and this is where it went. A human refusal inside the organization is a refusal in Civica's sense (Article I) and must remain visible (Article V); the right to appeal is Article VI. Shaped after aviation's confidential safety reporting and the nuclear safety-conscious work environment: by role not by name, non-punitive, reviewed promptly, with the outcome fed back to the person who raised it. An escalation that is still open blocks any release dated after it.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type", "spec_version", "time", "system_id", "purpose_id", "raised_by", "raised_to",
+    "category", "article_ids", "concern", "disposition", "disposition_reason", "disposition_time",
+    "retaliation_prohibited", "visible_to_raiser"
+  ],
+  "properties": {
+    "record_type": { "const": "civica.escalation" },
+    "spec_version": { "const": "0.2" },
+    "time": { "type": "string", "format": "date-time", "description": "When the concern was raised." },
+    "system_id": { "type": "string", "minLength": 1 },
+    "purpose_id": { "type": "string", "minLength": 1 },
+    "raised_by": { "type": "string", "minLength": 1, "maxLength": 120, "description": "Role, never a name. The record is de-identified by construction." },
+    "raised_to": { "type": "string", "minLength": 1, "maxLength": 120, "description": "Role the concern went to." },
+    "category": {
+      "enum": ["scope", "purpose", "harm", "uncertainty", "safeguard", "pressure", "memory", "oversight"],
+      "description": "The refusal categories, plus memory (a constraint or record is being dropped) and oversight (review is being bypassed or is unavailable)."
+    },
+    "article_ids": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"] } },
+    "concern": { "type": "string", "minLength": 1, "maxLength": 500, "description": "The conflict, stated structurally: which constraint, which behavior, what evidence. Not a transcript." },
+    "disposition": { "enum": ["open", "accepted", "declined_with_reason"], "description": "open: not yet answered. accepted: the concern changed something. declined_with_reason: it did not, and the reason is on the record. There is no silent close." },
+    "disposition_reason": { "type": ["string", "null"], "maxLength": 500, "description": "Required (not null) unless disposition is open. What was done, or why nothing was." },
+    "disposition_time": { "type": ["string", "null"], "format": "date-time", "description": "Required (not null) unless disposition is open. Not before time." },
+    "retaliation_prohibited": { "const": true, "description": "Always true. The record asserts the raiser is protected. A system whose operator punished the raiser has made its Civica claim false." },
+    "visible_to_raiser": { "const": true, "description": "Always true. The disposition is fed back to the person who raised the concern. A concern that vanishes upward is not reviewed." }
+  }
+}

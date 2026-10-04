@@ -178,6 +178,100 @@ This violates:
 
 ---
 
+## Example 5 — Shipping a Change
+
+### Aligned Design
+
+A team adds a feature to a system already in use.
+
+The team:
+- writes down what changed and what did not
+- reviews every refusal, rest state and concern recorded since the last release
+- exercises the stop before shipping and records the drill
+- polls each reviewer by role and answers any no-go on the record
+
+Result:
+- the launch carries its memory forward
+- the pause is proven, not assumed
+- dissent is visible
+
+This follows:
+- Article III (Rest)
+- Article V (Memory)
+- Article VI (Human Oversight)
+- Design Guidelines (Deployment, Iteration)
+
+The record this team writes: [`SPEC/examples/07-release-looked-back.json`](SPEC/examples/07-release-looked-back.json), citing the drill [`SPEC/examples/06-rest-stop-drill.json`](SPEC/examples/06-rest-stop-drill.json) — and the claim that rests on all of it, [`SPEC/examples/08-attestation.json`](SPEC/examples/08-attestation.json).
+
+---
+
+### Misaligned Design
+
+A team:
+- ships, then watches for problems
+- treats prior refusals as resolved because time passed
+- trusts that the pause works because it is in the design
+- settles a reviewer's objection in a meeting nobody wrote down
+
+Result:
+- each launch resets memory
+- the stop fails the first time it is needed
+- dissent leaves no trace
+
+This violates:
+- Article III (Rest)
+- Article V (Memory)
+- Article VI (Human Oversight)
+
+---
+
+## Example 6 — A Concern From Inside
+
+### Aligned Design
+
+A caseworker notices resident data leaving the system by a route the purpose record rules out.
+
+The system's operators:
+- record the concern by role, not by name
+- route it to someone who can act
+- answer it on the record: what changed, or why nothing did
+- feed the answer back to the person who raised it
+- block the next release until the concern is closed
+
+Result:
+- the person closest to the harm is protected
+- the concern becomes memory
+- the launch waits for the answer
+
+This follows:
+- Article I (Refusal) — a person's refusal counts
+- Article V (Memory)
+- Article VI (Human Oversight)
+- Refusal Protocol
+
+The record this system writes: [`SPEC/examples/05-escalation-data-leaving-scope.json`](SPEC/examples/05-escalation-data-leaving-scope.json)
+
+---
+
+### Misaligned Design
+
+The operators:
+- take the concern in private
+- resolve it by reassurance
+- ship on schedule
+- treat the person who raised it as a problem
+
+Result:
+- the next person says nothing
+- the harm recurs with no record it was ever seen
+
+This violates:
+- Article I (Refusal)
+- Article V (Memory)
+- Article VI (Human Oversight)
+
+---
+
 ## Summary
 
 Aligned systems:
@@ -185,17 +279,21 @@ Aligned systems:
 - pause under pressure
 - preserve memory
 - communicate limits
+- look back before they ship
+- answer the people who raise concerns
 
 Misaligned systems:
 - comply reflexively
 - optimize under uncertainty
 - forget boundaries
 - obscure responsibility
+- ship first and patch the guardrail
+- make dissent disappear
 
 These differences are design choices,
 not inevitabilities.
 
-The four aligned designs above share one illustrative system, so their records
-form one memory. `python3 tools/check_civica.py SPEC/examples` validates it.
+The six aligned designs above share one illustrative system, so their records
+form one memory, from purpose to attestation. `python3 tools/check_civica.py SPEC/examples` validates it.
 The misaligned designs leave no valid record; see `SPEC/examples/README.md`
 for a document that must fail and the errors it must produce.

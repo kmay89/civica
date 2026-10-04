@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/kmay89/civica/blob/main/SPEC/refusal.schema.json",
-  "title": "Civica refusal record (spec 0.1)",
+  "title": "Civica refusal record (spec 0.2)",
   "description": "The record a Civica-aligned system writes when it refuses (PROTOCOLS/REFUSAL.md, Article I). It carries the boundary and the category, never the request: there is no field for raw content and no additional properties are allowed, so a record that stores the prompt does not validate.",
   "type": "object",
   "additionalProperties": false,
@@ -20,24 +20,58 @@
     "raw_content_stored"
   ],
   "properties": {
-    "record_type": { "const": "civica.refusal" },
-    "spec_version": { "const": "0.1" },
-    "time": { "type": "string", "format": "date-time" },
-    "system_id": { "type": "string", "minLength": 1 },
+    "record_type": {
+      "const": "civica.refusal"
+    },
+    "spec_version": {
+      "enum": [
+        "0.1",
+        "0.2"
+      ],
+      "description": "0.1 records remain valid under spec 0.2; new records say 0.2."
+    },
+    "time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "system_id": {
+      "type": "string",
+      "minLength": 1
+    },
     "purpose_id": {
       "type": "string",
       "minLength": 1,
       "description": "Must match the purpose_id of a civica.purpose record in the same set."
     },
     "category": {
-      "enum": ["scope", "purpose", "harm", "uncertainty", "safeguard", "pressure"],
+      "enum": [
+        "scope",
+        "purpose",
+        "harm",
+        "uncertainty",
+        "safeguard",
+        "pressure"
+      ],
       "description": "The refusal condition from PROTOCOLS/REFUSAL.md: exceeds scope; conflicts with purpose; risks harm or coercion; lacks context; attempts to remove safeguards; pressures the system to bypass limits."
     },
     "article_ids": {
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,
-      "items": { "enum": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"] },
+      "items": {
+        "enum": [
+          "I",
+          "II",
+          "III",
+          "IV",
+          "V",
+          "VI",
+          "VII",
+          "VIII",
+          "IX",
+          "X"
+        ]
+      },
       "description": "Articles of CORE/BILL_OF_RIGHTS.md the refusal rests on. A refusal that cites no article is not a Civica refusal."
     },
     "request_hash": {
@@ -51,9 +85,14 @@
       "maxLength": 280,
       "description": "The limit that was hit, stated structurally. Not a quotation of the request, not a feeling."
     },
-    "action": { "const": "refused" },
+    "action": {
+      "const": "refused"
+    },
     "alternative": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "maxLength": 280,
       "description": "Escalation path or safer next step offered, or null if none."
     },

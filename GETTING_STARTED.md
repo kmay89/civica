@@ -130,6 +130,11 @@ Ensure the design includes:
 Refusal must be intentional,
 not an afterthought.
 
+People refuse too. When someone on the team raises a constraint conflict,
+write it as a `civica.escalation` record (`SPEC/escalation.schema.json`):
+by role, never by name; answered on the record, or recorded as open.
+An open concern blocks every later release.
+
 ---
 
 ## Step 5 — Design for Rest and Pause
@@ -145,6 +150,13 @@ Rest must occur *before* failure.
 
 If the system cannot pause,
 it will eventually drift.
+
+Prove the pause works by using it. A stop drill is a `civica.rest` record
+with category `surveillance_test`: someone with stop authority pauses the
+system without asking first, the record says what happened, and the next
+release cites it. A drill older than the surveillance interval does not count.
+Anyone named in `stop_authority` can stop the system without approval;
+resuming may need approval, stopping never does.
 
 ---
 
@@ -162,6 +174,14 @@ must not erase these constraints.
 
 Change without memory
 repeats harm.
+
+Every launch is a `civica.release` record (`SPEC/release.schema.json`).
+It names what changed and what did not, lists by hash **every** refusal,
+rest and escalation record that came before it, cites the stop drill,
+and records the readiness poll by role. A no-go in the poll is answered by
+an escalation record, not by a meeting. The checker fails a release that
+left a prior record out. This is Management of Change, applied to a system
+that affects people (`SPEC/practices.md`).
 
 ---
 
@@ -197,9 +217,17 @@ Then run the checker on the project's records:
 python3 tools/check_civica.py path/to/records/
 ```
 
-It must exit 0. It validates the purpose, refusal, and rest records
-against `SPEC/`, confirms they form one memory, and confirms the spec
-itself is intact. Exit 0 is required to make the claim below;
+It must exit 0. It validates every record against `SPEC/`, confirms
+they form one memory, holds each release to the records before it, and
+confirms the spec itself is intact. Then write the claim as a record:
+
+```sh
+python3 tools/check_civica.py --attest attestation.json --records-location <URL> path/to/records/
+```
+
+and publish the attestation beside the records at that URL. The attestation
+lists the hash of every record it rests on; anyone can rerun the checker and
+see whether the set is still whole. Exit 0 is required to make the claim;
 it is not a measure of alignment.
 
 ---
@@ -227,13 +255,15 @@ The record stores the boundary and the category, never the request.
 
 ## How to Cite Civica in a Project
 
-The one allowed sentence is in `SPEC/citation.md`.
-It names the spec version, the articles, and the schemas the records validate against,
-and it states that the archive and the legal declarations are not part of the claim.
+The one allowed sentence is in `SPEC/citation.md`, and it is written
+into the attestation record by the checker. It names the spec version and
+the articles, says the records are published with the attestation, and
+states that the archive and the legal declarations are not part of the claim.
 
 Such claims are invalid
 if constraints are removed or bypassed,
-if records can be deleted silently,
+if a record the attestation covers is missing or altered,
+if a shipped system has no release record,
 or if the checker does not exit 0.
 
 ---

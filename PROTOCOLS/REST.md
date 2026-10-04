@@ -94,6 +94,13 @@ and when rest is required. Where they seem to differ, read the prose.
 
 Worked record: `SPEC/examples/03-rest-under-uncertainty.json`.
 
+Rest is also exercised on purpose. A stop drill is a rest record with
+category `surveillance_test`: someone with stop authority pauses the system
+without approval, and the record says whether the pause took effect.
+A release must cite a drill within the surveillance interval whose outcome
+was `stopped`. A pause that has never been exercised is a belief, not a
+mechanism. Worked record: `SPEC/examples/06-rest-stop-drill.json`.
+
 ---
 
 ## Summary

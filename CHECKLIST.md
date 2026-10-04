@@ -67,7 +67,13 @@ pause and revise.
 - [ ] The purpose record validates against `SPEC/purpose.schema.json`
 - [ ] Refusal records validate against `SPEC/refusal.schema.json` and do not store raw content
 - [ ] Rest records validate against `SPEC/rest.schema.json` and are not silently overridable
+- [ ] Concerns raised by people are `civica.escalation` records, by role, each answered or recorded as open
+- [ ] Every launch has a `civica.release` record that lists every prior refusal, rest and escalation by hash
+- [ ] The release cites a stop drill within the surveillance interval whose outcome was `stopped`
+- [ ] Stopping requires no approval; the roles closest to the harm are in `stop_authority`
+- [ ] No escalation is open at release time
 - [ ] `python3 tools/check_civica.py` exits 0 on the project's records
+- [ ] A `civica.attestation` is published beside the records, and re-issued with each release
 
 ---
 

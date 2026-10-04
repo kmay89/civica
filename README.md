@@ -18,7 +18,7 @@ Civica has two layers. Read them differently.
 
 **Spec (normative).** What a project implements and may claim:
 `FRAMING.md`, `WHY_THIS_EXISTS.md`, `CORE/`, `PROTOCOLS/`, `SPEC/`, `DESIGN_GUIDELINES.md`, `GETTING_STARTED.md`, `CHECKLIST.md`, `EXAMPLES.md`.
-The prose in `CORE/` and `PROTOCOLS/` governs interpretation; `SPEC/` gives it a fixed shape (the ten articles as data, JSON Schemas for purpose, refusal, and rest records) and `tools/check_civica.py` fails a record, or a fork, that drops a constraint.
+The prose in `CORE/` and `PROTOCOLS/` governs interpretation; `SPEC/` gives it a fixed shape (the ten articles as data; JSON Schemas for purpose, refusal, rest, escalation, release, and attestation records) and `tools/check_civica.py` fails a record, a launch that did not look back, or a fork that drops a constraint.
 
 **History (non-normative).** `ARCHIVE/` and `LEGAL/`.
 Historical signal and author declarations. Not required to implement anything. Not a claim that any model co-authored the spec. Witness attestations in the archive are self-reported by the formatting instance, as those files already say. Preserved as written; not revised.
@@ -108,13 +108,16 @@ FRAMING.md            — Explicit interpretive and legal framing
 WHY_THIS_EXISTS.md    — The problem Civica addresses
 CORE/                 — Core civic documents (manifesto, Bill of Rights)
 PROTOCOLS/            — Refusal, rest, and memory, in prose (governs interpretation)
-SPEC/                 — The normative shape: articles.yaml, the record schemas,
-                        memory.md, citation.md, and valid example records
+SPEC/                 — The normative shape: articles.yaml, six record schemas
+                        (purpose, refusal, rest, escalation, release, attestation),
+                        memory.md, practices.md, citation.md, and one system's
+                        example records from purpose to attestation
 DESIGN_GUIDELINES.md  — Applying the constraints in a real project
 GETTING_STARTED.md    — The eight steps, from declared purpose to the check
 CHECKLIST.md          — Pre-deployment check
 EXAMPLES.md           — Aligned vs. misaligned design, each aligned case with its record
-tools/                — check_civica.py, the fail state (standard library only)
+tools/                — check_civica.py, the fail state: validates, hashes, attests
+                        (standard library only)
 ARCHIVE/              — NON-NORMATIVE. Narrative, symbolic, and historical materials
 LEGAL/                — NON-NORMATIVE. Author declarations, fenced by LEGAL/README.md
 ```

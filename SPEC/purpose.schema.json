@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/kmay89/civica/blob/main/SPEC/purpose.schema.json",
-  "title": "Civica purpose record (spec 0.1)",
+  "title": "Civica purpose record (spec 0.2)",
   "description": "The declared purpose GETTING_STARTED.md step 1 requires. Refusal and rest records reference it by purpose_id; without it they are undefined. An update to purpose is a new record that supersedes the old one, which stays in the set (Article V, PROTOCOLS/MEMORY.md).",
   "type": "object",
   "additionalProperties": false,
@@ -21,8 +21,16 @@
     "supersedes"
   ],
   "properties": {
-    "record_type": { "const": "civica.purpose" },
-    "spec_version": { "const": "0.1" },
+    "record_type": {
+      "const": "civica.purpose"
+    },
+    "spec_version": {
+      "enum": [
+        "0.1",
+        "0.2"
+      ],
+      "description": "0.1 records remain valid under spec 0.2; new records say 0.2."
+    },
     "time": {
       "type": "string",
       "format": "date-time",
@@ -46,31 +54,46 @@
     "serves": {
       "type": "array",
       "minItems": 1,
-      "items": { "type": "string", "minLength": 1 },
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
       "description": "Who the system serves."
     },
     "known_harms": {
       "type": "array",
       "minItems": 1,
-      "items": { "type": "string", "minLength": 1 },
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
       "description": "Harm already known in this domain. A domain with no known harm has not been looked at."
     },
     "never": {
       "type": "array",
       "minItems": 1,
-      "items": { "type": "string", "minLength": 1 },
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
       "description": "What this system must never do."
     },
     "scope_in": {
       "type": "array",
       "minItems": 1,
-      "items": { "type": "string", "minLength": 1 },
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
       "description": "What the system can do."
     },
     "scope_out": {
       "type": "array",
       "minItems": 1,
-      "items": { "type": "string", "minLength": 1 },
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
       "description": "What the system cannot do and will refuse."
     },
     "human_oversight": {
@@ -79,7 +102,10 @@
       "description": "How humans intervene, override, appeal, and revise (Article VI)."
     },
     "supersedes": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "description": "purpose_id of the declaration this one replaces, or null for a first declaration. The superseded record must remain in the set."
     }
   }
